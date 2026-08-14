@@ -1,0 +1,17 @@
+ExamDesk 1.0.0 Python版运行说明
+==============================
+
+1. 安装 Python 3.11 x64。
+2. 在项目根目录打开 PowerShell。
+3. 创建并安装开发环境：
+
+   python -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+
+4. 运行主管理员版：
+
+   .\.venv\Scripts\python.exe -m examdesk
+
+5. Python源码默认运行主管理员版；考生协作版由打包脚本生成独立EXE。
+6. 不要使用 Python 2、32位 Python 或其他软件附带的旧解释器。
+7. 默认数据目录为 %LOCALAPPDATA%\ExamDesk。

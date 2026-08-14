@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "examdesk"
+version = "1.0.0"
+description = "面向 Windows 的离线题库、练习与考试桌面应用"
+readme = "README.md"
+license = "GPL-3.0-only"
+authors = [{ name = "WaffleMisu" }]
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "PySide6>=6.7,<6.10",
+    "cryptography>=42,<47",
+    "openpyxl>=3.1,<4",
+    "Pillow>=10,<12",
+    "packaging>=24,<27",
+    "python-docx>=1.1,<2",
+    "RapidFuzz>=3.9,<4",
+    "reportlab>=4.2,<5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "nuitka>=4.1,<5",
+    "ordered-set>=4.1,<5",
+    "pytest>=8.2,<9",
+    "pytest-cov>=5,<7",
+    "ruff>=0.6,<1",
+    "pyinstaller>=6.10,<7",
+    "ziglang==0.16.0",
+    "zstandard>=0.25,<1",
+]
+
+[project.scripts]
+examdesk = "examdesk.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-markers"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
